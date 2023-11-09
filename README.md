@@ -17,6 +17,23 @@
 [![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
 
+
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fszilard9554%2Faddon-prometheus)
+
+
+## Add-ons
+
+This repository contains the following add-ons
+
+### [Prometheus add-on](./prometheus)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+![Supports armhf Architecture][armhf-shield]
+![Supports armv7 Architecture][armv7-shield]
+![Supports i386 Architecture][i386-shield]
+
+
 The open platform for beautiful analytics and monitoring.
 
 ![Prometheus in the Home Assistant Frontend](images/screenshot.png)
@@ -102,7 +119,7 @@ SOFTWARE.
 [discord]: https://discord.me/hassioaddons
 [docs]: https://github.com/hassio-addons/addon-prometheus/blob/main/prometheus/DOCS.md
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
-[forum]: https://example.net
+[forum]: https://community.home-assistant.io/
 [mjrider]: https://github.com/mjrider
 [gitlabci-shield]: https://gitlab.com/hassio-addons/addon-prometheus/badges/master/pipeline.svg
 [gitlabci]: https://gitlab.com/hassio-addons/addon-prometheus/pipelines

@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base system
 ARG BUILD_ARCH=amd64
-ENV PROMETHEUS_VERSION=2.40.1
+ENV PROMETHEUS_VERSION=2.47.2
 
 # Copy root filesystem
 COPY rootfs /
@@ -18,19 +18,18 @@ RUN \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     \
     && apk --no-cache add \
-        python3=3.10.5-r0 \
+        python3=3.10.13-r0 \
         py3-idna=3.3-r2 \
         py3-certifi=2021.10.8-r0 \
         py3-chardet=4.0.0-r3 \
         py3-yaml=6.0-r0 \
-        py3-urllib3=1.26.9-r0 \
+        py3-urllib3=1.26.18-r0 \
         py3-requests=2.27.1-r0 \
     && apk --no-cache add --virtual .builddeps \
         py-pip=22.1.1-r0 \
     \
     && curl -J -L -o /tmp/prometheus.tar.gz \
         "https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}.tar.gz" \
-    && adduser -s /bin/false -D -H prometheus \
     && cd /tmp \
     && tar -xvf /tmp/prometheus.tar.gz \
     && mkdir -p /etc/prometheus \
@@ -39,7 +38,6 @@ RUN \
     && cp -R prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}/console_libraries/ /etc/prometheus/ \
     && cp -R prometheus-${PROMETHEUS_VERSION}.linux-${ARCH}/consoles/ /etc/prometheus/ \
     && rm -r prometheus-${PROMETHEUS_VERSION}.linux-${ARCH} \
-    && chown -R prometheus:prometheus /etc/prometheus \
     && pip3 install \
         --no-cache-dir \
         --prefer-binary \

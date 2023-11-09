@@ -3,8 +3,6 @@ name: Prometheus
 version: dev
 slug: prometheus
 description: Cloud native metrics
-url: https://github.com/hassio-addons/addon-prometheus
-codenotary: codenotary@frenck.dev
 startup: services
 ingress: true
 ingress_port: 9090
